@@ -29,6 +29,8 @@ Vamos a utilizar la versión 3.2.2 de django.
 
 **$** `pip install Django==3.2.2` 
 
+//comprobar django: python -c "import django; print(django.get_version())"
+
 ### 4. Crear un proyecto de Django
 Para ello tenemos que estar dentro del contenedor de software (comando N°2)
 Y luego nos dirigimos a la carpeta raíz de nuestro proyecto:
@@ -39,11 +41,23 @@ Una vez dentro ejecutamos el comando:
 
 **$** `django-admin startproject mi_proyecto` 
 
+/* 4.5: configurar el servidor
+1- cd mi_proyecto
+2- python manage.py migrate */
+
 ### 5. Iniciar el servidor
 (Siempre dentro de nuestro contenedor de software - Comando N°2)  
 Tenemos que ir a la carpeta donde se encuentra el archivo *manage.py*  
 
 **$** `python manage.py runserver 0.0.0.0:8000`  
+
+/*5.5: crear el superusuario
+1-abrir nueva terminal
+2-docker exec -i -t prueba_djangoISDM bash
+3-python manage.py createsuperuser
+4-nombre
+5-correo
+6-contraseña */
 
 ### 6. Detener la ejecución de nuestro contenedor y nuestro servidor
 Tenemos que estar en la terminal que nos muestra los mensajes del servidor, tomada por el contenedor.
@@ -57,8 +71,9 @@ O también puede ser con docker-compose:
 Tenemos que estar en la carpeta que contiene el archivo *docker-compose.yml* y hacer:
 
 
-**$** `docker-compose down`  
+**$** `docker-compose down` 
 
+/**-------ya realizado------------------------------
 ### 7. Crear un Usuario Administrador en Django
 Para iniciar sesión en el sitio de administración, necesitamos una cuenta de usuario con estado de Personal habilitado. 
 Para ver y crear registros tambien necesitamos que este usuario tenga permisos para administrar todos nuestros objetos. 
@@ -67,7 +82,9 @@ Puedes crear una cuenta "administrador" que tenga acceso total al sitio y a todo
 Usa el siguiente comando, en el mismo directorio de manage.py, para crear al administrador. Deberás ingresar un nombre de usuario, dirección email, y una contraseña fuerte.
 
 **$** `python manage.py createsuperuser`
+----------------------------------------------**/
 
+------------antes de detener el contenedor-------------------------------
 Para iniciar sesión en el sitio, ve a la URL /admin (e.j. http://localhost:8000/admin) e ingresa tus credenciales de id usuario y contraseña de administrador
 
 ---
