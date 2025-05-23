@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 """morales_manuel URL Configuration
+=======
+"""mi_proyecto URL Configuration
+>>>>>>> fa8fbcd3d6beed70299ec3a08cf0d1eb070685ee
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
